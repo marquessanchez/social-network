@@ -2,7 +2,7 @@ const { User } = require('../models');
 
 const userController = {
   // get all users
-  getAllUser(req, res) {
+  getAllUsers(req, res) {
     User.find ({})
     .populate({
       path: 'thoughts',
@@ -68,8 +68,8 @@ const userController = {
   },
 
   // create a user
-  createUser({ params }, res) {
-    User.create(params)
+  createUser({ body }, res) {
+    User.create({body})
       .then(dbUserData => res.json(dbUserData))
       .catch(err => res.json(err));
   }
