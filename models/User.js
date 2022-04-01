@@ -24,16 +24,16 @@ const UserSchema = new Schema({
       type: Schema.Types.ObjectId,
       ref: 'User'
     }
-  ],
-    toJSON: {
-      virtuals: true,
-      getters: true
-    }
+  ]
+    // toJSON: {
+    //   virtuals: true,
+    //   getters: true
+    // }
 });
 
-UserSchema.virtual('friendCount').get(function() {
-  return this.friends.reduce((total, friend) => total + friend.replies/length + 1, 0);
-});
+// UserSchema.virtual('friendCount').get(function() {
+//   return this.friends.reduce((total, friend) => total + friend.replies/length + 1, 0);
+// });
 
 const User = model('User', UserSchema);
 
